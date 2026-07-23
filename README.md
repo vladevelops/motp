@@ -12,7 +12,8 @@ A fast, thread-safe, generic in-memory OTP (One-Time Password) manager for Go wi
 ## Installation
 
 ```bash
-go get [github.com/vladevelops/motp](https://github.com/vladevelops/motp)
+go get github.com/vladevelops/motp
+
 ```
 
 ## Quick Start
@@ -24,7 +25,7 @@ import (
 	"fmt"
 	"time"
 
-	"[github.com/vladevelops/motp](https://github.com/vladevelops/motp)"
+	"github.com/vladevelops/motp"
 )
 
 type SessionData struct {

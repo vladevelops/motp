@@ -17,7 +17,7 @@ func TestCodeLive(t *testing.T) {
 	otp := NewMemoryOtp(WithOTPLen[OtpEmailType](10))
 
 	key := "myemail"
-	code, err := otp.GenenareOTP(OtpData[OtpEmailType]{
+	code, err := otp.GenerateOTP(OtpData[OtpEmailType]{
 		Key:        key,
 		Data:       LOGIN,
 		Expiration: time.Now().Add(time.Second * 30),
@@ -67,7 +67,7 @@ func TestCodeLiveCleaner(t *testing.T) {
 	otp := NewMemoryOtp(WithOTPLen[OtpEmailType](10), WithOTPCleanupTime[OtpEmailType](time.Second*3))
 
 	key := "myemail"
-	code, err := otp.GenenareOTP(OtpData[OtpEmailType]{
+	code, err := otp.GenerateOTP(OtpData[OtpEmailType]{
 		Key:        key,
 		Data:       LOGIN,
 		Expiration: time.Now().Add(time.Second * 2),

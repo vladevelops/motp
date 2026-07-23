@@ -27,7 +27,7 @@ type OtpData[T any] struct {
 }
 
 type MemoryOtp[T any] interface {
-	GenenareOTP(otp_data OtpData[T]) (code string, err error)
+	GenerateOTP(otp_data OtpData[T]) (code string, err error)
 	CheckOTP(key, code string) (ret_otp OtpData[T], err error)
 	DeleteOTP(key string) error
 }
@@ -107,7 +107,7 @@ func WithOTPCleanupTime[T any](new_time time.Duration) OtpConf[T] {
 //
 // Returns the generated (or provided) OTP code string, or an error if the key is already in use.
 // This method is thread-safe.
-func (otp *otp_manager[T]) GenenareOTP(otp_data OtpData[T]) (code string, err error) {
+func (otp *otp_manager[T]) GenerateOTP(otp_data OtpData[T]) (code string, err error) {
 	if otp_data.Code == "" {
 		otp_data.Code = otp.generate_otp_code(otp.code_len)
 	}

@@ -34,21 +34,20 @@ type SessionData struct {
 
 func main() {
 	// Initialize with options
-	otpStore := motp.NewMemoryOtp[SessionData](
-		motp.WithOTPLen[SessionData](6),
-	)
+	otp := motp.NewMemoryOtp[SessionData]()
 
-	// Create an OTP
-	code, err := otpStore.GenerateOTP(motp.OtpData[SessionData]{
+	code, err := otp.GenerateOTP(motp.OtpData[SessionData]{
 		Key:        "user_123",
 		Expiration: time.Now().Add(5 * time.Minute),
 		Data:       SessionData{UserID: "usr_42"},
 	})
+
 	if err != nil {
 		panic(err)
 	}
 
 	fmt.Println("Generated OTP:", code)
+
 }
 ```
 
